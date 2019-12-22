@@ -1,0 +1,38 @@
+<div class="container">
+    <div class="jumbotron">
+      <div class="page-header">
+        <h2>Product Details</h2>
+      </div>
+    <button style="margin-bottom: 20px" class="btn btn-success" (click)="addProduct()">Add Product</button> &nbsp;&nbsp;
+    <!-- <button style="margin-bottom: 20px" class="btn btn-danger" (click)="logOutUser()">LogOff</button>&nbsp;&nbsp; -->
+    <!-- <button style="margin-bottom: 20px" class="btn btn-primary" (click)="getuser()">Seacrh By Id</button>&nbsp;&nbsp;
+    <button style="margin-bottom: 20px" class="btn btn-primary" (click)="getname()">Seacrh By Name</button>
+    <button style="margin-bottom: 20px" class="btn btn-primary" (click)="userfilter()">Seacrh using filter</button> -->
+    
+    <table class="table table-responsive table-hover table-striped table-condensed table-bordered" border="1">
+      <tr>
+        <th>Product ID</th>
+        <th>Product Name</th>
+        <th>Product Category</th>
+        <th>Product Price</th>
+        <th>Actions</th>
+      </tr>
+      <tr *ngFor="let product of productlist">
+        <td>{{product.ProductID}}</td>
+        <td>{{product.ProductName }}</td>
+        <td>{{product.ProductCategory }}</td>
+        <td>{{product.ProductPrice}}</td>
+        <td><button class="btn btn-danger" (click)="deleteProduct(product.ProductID)">Delete</button>&nbsp;&nbsp;
+          <button class="btn btn-primary" (click)="editProduct(product)">Edit</button></td>
+    
+      </tr>
+    
+      <tr *ngIf="!productlist || productlist.length==0">
+        <td colspan="5">
+          No product to display
+        </td>
+      </tr>
+      </tbody>
+    </table>
+    </div>
+    </div>
